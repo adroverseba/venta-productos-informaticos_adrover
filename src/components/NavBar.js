@@ -4,6 +4,7 @@ import Typography from "@mui/material/Typography";
 import { makeStyles } from "@mui/styles";
 // import IconButton from "@mui/material/IconButton";
 import Button from "@mui/material/Button";
+import CartWidget from "./CartWidget";
 
 const useStyles = makeStyles((theme) => ({
   offset: theme.mixins.toolbar,
@@ -31,13 +32,18 @@ const Navbar = () => {
           <Typography variant="h6" component="h1" className={classes.title}>
             ELECTRONIC HOUSE
           </Typography>
+
           <Button variant="text" color="inherit">
             productos
           </Button>
+
           <Button variant="text" color="inherit">
             Quienes somos
           </Button>
           <Button color="inherit">Login</Button>
+          <Button color="inherit">
+            <CartWidget />
+          </Button>
         </Toolbar>
       </AppBar>
       <div className={classes.offset}></div>
