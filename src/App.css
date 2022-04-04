@@ -19,7 +19,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  border: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  box-shadow: 0px;
+  /* flex-direction: ; */
+
   font-size: calc(10px + 2vmin);
   color: white;
 }
