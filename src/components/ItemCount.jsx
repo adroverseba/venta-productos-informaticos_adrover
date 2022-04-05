@@ -1,25 +1,23 @@
 import { Add, Remove } from "@mui/icons-material";
 import { Button } from "@mui/material";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { MainProductContainer, ProductCountContainer } from "./styledComponent";
 
-//{ stock = 0, initial = 1, onAdd }
-
-const ItemCount = () => {
+const ItemCount = ({ stock = 0, initial = 1, onAdd }) => {
   const [count, setCount] = useState(0);
 
-  // useEffect(() => {
-  //   setCount(initial);
-  // }, []);
+  useEffect(() => {
+    setCount(initial);
+  }, []);
 
   const increment = () => {
-    if (count < 5) {
+    if (count < stock) {
       setCount(count + 1);
     }
   };
 
   const decrement = () => {
-    if (count > 0) {
+    if (count > initial) {
       setCount(count - 1);
     }
   };
@@ -34,9 +32,15 @@ const ItemCount = () => {
           <Add />
         </Button>
       </ProductCountContainer>
-      <Button variant="text" color="primary">
-        Agregar al carrito
-      </Button>
+      {stock ? (
+        <Button variant="text" color="primary" onClick={() => onAdd(count)}>
+          Agregar al carrito
+        </Button>
+      ) : (
+        <Button variant="text" disabled>
+          Agregar al carrito
+        </Button>
+      )}
     </MainProductContainer>
   );
 };
