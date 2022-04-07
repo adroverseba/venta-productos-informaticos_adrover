@@ -6,15 +6,17 @@ import theme from "./temaConfig";
 // import IconButton from "@mui/material/IconButton";
 // import Typography from "@mui/material/Typography";
 
-// import "./App.css";
+import "./App.css";
 import Navbar from "./components/NavBar";
 import ItemListContainer from "./components/ItemListContainer";
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <Navbar />
-      <ItemListContainer />
+    <ThemeProvider theme={theme} className="App">
+      <div class="App">
+        <Navbar />
+        <ItemListContainer />
+      </div>
     </ThemeProvider>
   );
 }

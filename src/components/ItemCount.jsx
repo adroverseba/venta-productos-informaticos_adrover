@@ -32,7 +32,7 @@ const ItemCount = ({ stock = 0, initial = 1, onAdd }) => {
           <Add />
         </Button>
       </ProductCountContainer>
-      {stock ? (
+      {stock && count ? (
         <Button variant="text" color="primary" onClick={() => onAdd(count)}>
           Agregar al carrito
         </Button>
