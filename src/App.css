@@ -42,3 +42,8 @@ div.card {
   border-radius: 10px;
   box-shadow: 0px; */
 /* flex-direction: ; */
+
+/* item Detail  */
+.itemDetail-container {
+  height: 90vh;
+}

@@ -54,7 +54,7 @@ export const products = [
     id: 25,
     name: "Auricular Inalambrico HyperX Cloud Flight",
     stock: 200,
-    cost: 180,
+    cost: 8000,
     description:
       "HyperX Cloud Flight Headset con licencia de Xbox están diseñados para una comunicación nítida para chat.",
     capacity: 1500,

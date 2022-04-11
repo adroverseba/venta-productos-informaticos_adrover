@@ -7,15 +7,13 @@ import theme from "./temaConfig";
 // import Typography from "@mui/material/Typography";
 
 import "./App.css";
-import Navbar from "./components/NavBar";
-import ItemListContainer from "./components/ItemListContainer";
+import Home from "./pages/Home";
 
 function App() {
   return (
     <ThemeProvider theme={theme} className="App">
       <div class="App">
-        <Navbar />
-        <ItemListContainer />
+        <Home />
       </div>
     </ThemeProvider>
   );
