@@ -4,6 +4,7 @@ import Typography from "@mui/material/Typography";
 import { makeStyles } from "@mui/styles";
 // import IconButton from "@mui/material/IconButton";
 import Button from "@mui/material/Button";
+import CartWidget from "./CartWidget";
 
 const useStyles = makeStyles((theme) => ({
   offset: theme.mixins.toolbar,
@@ -38,6 +39,9 @@ const Navbar = () => {
             Quienes somos
           </Button>
           <Button color="inherit">Login</Button>
+          <Button variant="text" color="inherit">
+            <CartWidget />
+          </Button>
         </Toolbar>
       </AppBar>
       <div className={classes.offset}></div>
