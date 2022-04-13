@@ -5,6 +5,7 @@ import { makeStyles } from "@mui/styles";
 // import IconButton from "@mui/material/IconButton";
 import Button from "@mui/material/Button";
 import CartWidget from "./CartWidget";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   offset: theme.mixins.toolbar,
@@ -29,9 +30,11 @@ const Navbar = () => {
           >
             <span class="material-icons">menu</span>
           </IconButton> */}
+
           <Typography variant="h6" component="h1" className={classes.title}>
-            ELECTRONIC HOUSE
+            <Link to="/">ELECTRONIC HOUSE </Link>
           </Typography>
+
           <Button variant="text" color="inherit">
             productos
           </Button>

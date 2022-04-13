@@ -10,12 +10,12 @@ export const products = [
     sales: 0,
     createdAt: "2022-03-08T05:11:04.952Z",
     updatedAt: "2022-04-06T19:39:05.347Z",
-    categoryId: 9,
+    categoryId: 18,
     brandId: 95,
     packingId: null,
     category: {
-      name: "teclado",
-      id: 9,
+      name: "teclados",
+      id: 18,
     },
     brand: {
       id: 95,
@@ -37,12 +37,12 @@ export const products = [
     sales: 0,
     createdAt: "2022-03-08T05:11:04.952Z",
     updatedAt: "2022-04-06T19:39:05.347Z",
-    categoryId: 9,
+    categoryId: 15,
     brandId: 95,
     packingId: null,
     category: {
       name: "mouse",
-      id: 9,
+      id: 15,
     },
     brand: {
       id: 95,
@@ -64,12 +64,12 @@ export const products = [
     sales: 0,
     createdAt: "2022-03-08T05:11:04.952Z",
     updatedAt: "2022-04-06T19:39:05.347Z",
-    categoryId: 9,
+    categoryId: 14,
     brandId: 95,
     packingId: null,
     category: {
-      name: "auricular",
-      id: 9,
+      name: "auriculares",
+      id: 14,
     },
     brand: {
       id: 95,
@@ -78,7 +78,7 @@ export const products = [
     reviews: [],
   },
   {
-    id: 25,
+    id: 27,
     name: "MONITOR 22 LED ASUS VP228HE-CF FHD 1MS",
     stock: 200,
     cost: 180,
@@ -91,12 +91,12 @@ export const products = [
     sales: 0,
     createdAt: "2022-03-08T05:11:04.952Z",
     updatedAt: "2022-04-06T19:39:05.347Z",
-    categoryId: 9,
+    categoryId: 13,
     brandId: 95,
     packingId: null,
     category: {
-      name: "auricular",
-      id: 9,
+      name: "monitores",
+      id: 13,
     },
     brand: {
       id: 95,

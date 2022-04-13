@@ -8,6 +8,7 @@ const ItemList = (props) => {
           <div className="col-md-4">
             <Item
               key={item.id}
+              id={item.id}
               title={item.name}
               description={item.description}
               price={item.cost}

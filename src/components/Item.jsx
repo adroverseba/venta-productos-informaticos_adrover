@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Item = ({ id, title, stock, description, price, pictureUrl }) => {
   return (
     <div className="card p-3">
@@ -14,7 +16,7 @@ const Item = ({ id, title, stock, description, price, pictureUrl }) => {
         <p className="card-text">{description}</p>
         <p>price: {price}</p>
         <button className="btn btn-outline-primary btn-block">
-          Ver Detalle del Producto
+          <Link to={`/item/${id}`}>Ver Detalle del Producto</Link>
         </button>
       </div>
     </div>
