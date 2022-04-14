@@ -104,4 +104,56 @@ export const products = [
     },
     reviews: [],
   },
+  {
+    id: 24,
+    name: "Mouse Gamer Logitech G502",
+    stock: 100,
+    cost: 12000,
+    description:
+      " Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium totam illum voluptates eum architecto placeat.",
+    image: [
+      "https://d3ugyf2ht6aenh.cloudfront.net/stores/349/695/products/log-g502_11-a6a150fdb7a157d96415934646567357-1024-1024.png",
+    ],
+    sales: 7,
+    createdAt: "2022-03-08T05:11:04.952Z",
+    updatedAt: "2022-04-06T19:39:05.347Z",
+    categoryId: 15,
+    brandId: 95,
+    packingId: null,
+    category: {
+      name: "mouse",
+      id: 15,
+    },
+    brand: {
+      id: 95,
+      name: "Logitech",
+    },
+    reviews: [],
+  },
+  {
+    id: 28,
+    name: "Auricular  Redragon Icon H520",
+    stock: 100,
+    cost: 9000,
+    description:
+      " Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium totam illum voluptates eum architecto placeat.",
+    image: [
+      "https://mexx-img-2019.s3.amazonaws.com/Auricular-Gamer-Redragon-IconH520_41188_1.jpeg",
+    ],
+    sales: 7,
+    createdAt: "2022-03-08T05:11:04.952Z",
+    updatedAt: "2022-04-06T19:39:05.347Z",
+    categoryId: 14,
+    brandId: 95,
+    packingId: null,
+    category: {
+      name: "auriculares",
+      id: 14,
+    },
+    brand: {
+      id: 95,
+      name: "redragon",
+    },
+    reviews: [],
+  },
 ];
