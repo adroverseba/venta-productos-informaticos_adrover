@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import SearchForm from "./SearchForm";
 
 const useStyles = makeStyles((theme) => ({
   offset: theme.mixins.toolbar,
@@ -33,7 +34,11 @@ const Navbar = () => {
   };
   return (
     <div>
-      <AppBar position="fixed" color="primary">
+      <AppBar
+        position="fixed"
+        color="primary"
+        // onClick={() => alert("soy el navbar")}
+      >
         <Toolbar>
           {/* <IconButton
             aria-label="menu"
@@ -93,6 +98,9 @@ const Navbar = () => {
           <Button variant="text" color="inherit">
             Quienes somos
           </Button>
+
+          <SearchForm />
+
           <Button color="inherit">Login</Button>
           <Button variant="text" color="inherit">
             <CartWidget />

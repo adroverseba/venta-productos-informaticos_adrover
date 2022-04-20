@@ -1,8 +1,13 @@
 import ItemCount from "./ItemCount";
+import { useState } from "react";
+import Checkout from "./Checkout";
 
 const ItemDetail = ({ item }) => {
+  const [itemCount, setItemCount] = useState(0);
+
   const onAdd = (item) => {
     alert(" Tienes seleccionado " + item + "  item ");
+    setItemCount(item);
   };
 
   return (
@@ -17,7 +22,11 @@ const ItemDetail = ({ item }) => {
             <p className="my-2 py-2">{item.description}</p>
             <span className="display-6 my-3">${item.cost}</span>
             <p>{item.stock} unidades en stock</p>
-            <ItemCount stock={item.stock} initial={1} onAdd={onAdd} />
+            {itemCount === 0 ? (
+              <ItemCount stock={item.stock} initial={itemCount} onAdd={onAdd} />
+            ) : (
+              <Checkout />
+            )}
           </div>
         </div>
       ) : (

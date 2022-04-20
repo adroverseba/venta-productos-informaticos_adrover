@@ -162,6 +162,23 @@ const Price = styled.span`
   font-size: 40px;
 `;
 
+//search input
+//SearchForm
+const SearchContainer = styled.div`
+    background-color: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+    padding: 5px;
+`;
+
+const Input = styled.input`
+    margin-right: 5px;
+    border: none;
+    outline: none;
+`;
+
 // export const ProductCountContainer = styled.div`
 //   width: 180px;
 //   margin: 0 auto;
@@ -200,4 +217,6 @@ export {
   Title,
   Desc,
   Price,
+  SearchContainer,
+  Input,
 };
