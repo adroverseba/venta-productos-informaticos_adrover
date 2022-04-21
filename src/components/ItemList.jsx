@@ -5,7 +5,7 @@ const ItemList = (props) => {
     <>
       {props.items.length > 0 ? (
         props.items.map((item) => (
-          <div className="col-md-4">
+          <div className="col-md-4 ">
             <Item
               key={item.id}
               id={item.id}
@@ -18,7 +18,9 @@ const ItemList = (props) => {
           </div>
         ))
       ) : (
-        <p>Carganto productos...</p>
+        <div className="container">
+          <p>Carganto productos...</p>
+        </div>
       )}
     </>
   );

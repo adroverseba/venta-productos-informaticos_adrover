@@ -1,13 +1,16 @@
 import ItemCount from "./ItemCount";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Checkout from "./Checkout";
+import { CartContext } from "./CartContext";
 
 const ItemDetail = ({ item }) => {
   const [itemCount, setItemCount] = useState(0);
+  const test = useContext(CartContext);
 
-  const onAdd = (item) => {
-    alert(" Tienes seleccionado " + item + "  item ");
-    setItemCount(item);
+  const onAdd = (qty) => {
+    alert(" Tienes seleccionado " + qty + "  item ");
+    setItemCount(qty);
+    test.addToCart(item);
   };
 
   return (
@@ -15,7 +18,11 @@ const ItemDetail = ({ item }) => {
       {item.name ? (
         <div className="row">
           <div className="col-md-6 order-md-1">
-            <img src={item.image[0]} alt={item.name} />
+            <img
+              src={item.image[0]}
+              alt={item.name}
+              style={{ maxWidth: "500px" }}
+            />
           </div>
           <div className="col-md-6 order-md-2 d-flex flex-md-column justify-content-evenly">
             <h1 className="my-2">{item.name}</h1>

@@ -102,9 +102,11 @@ const Navbar = () => {
           <SearchForm />
 
           <Button color="inherit">Login</Button>
-          <Button variant="text" color="inherit">
-            <CartWidget />
-          </Button>
+          <Link to={"/cart"}>
+            <Button variant="text" color="inherit">
+              <CartWidget />
+            </Button>
+          </Link>
         </Toolbar>
       </AppBar>
       <div className={classes.offset}></div>
