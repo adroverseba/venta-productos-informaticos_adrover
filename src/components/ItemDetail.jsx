@@ -10,7 +10,7 @@ const ItemDetail = ({ item }) => {
   const onAdd = (qty) => {
     alert(" Tienes seleccionado " + qty + "  item ");
     setItemCount(qty);
-    test.addToCart(item);
+    test.addToCart(item, qty);
   };
 
   return (
