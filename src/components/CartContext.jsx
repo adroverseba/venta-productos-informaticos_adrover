@@ -34,11 +34,27 @@ const CartContextProvider = ({ children }) => {
     let result = cartList.filter((item) => item.idItem != id);
     setCartList(result);
   };
+  //calculo del monto total por producto
+  const calcTotalPerItem = (idItem) => {
+    let index = cartList.map((item) => item.idItem).indexOf(idItem);
+    return cartList[index].costItem * cartList[index].qtyItem;
+  };
+
+  const calcTotal= () =>{
+    return calcTotalPerItem = cartList.map(item=>calcTotalPerItem)
+  }
+  // const calcItemsQty = () => {
+  //   let qtys = cartList.map((item) => item.qtyItem);
+  //   return qtys.reduce(
+  //     (acumulador, valorActual) => acumulador + valorActual,
+  //     0
+  //   );
+  };
 
   // en value le estoy pasando un estado global y una funcion global - paso todo dentro de un objeto
   return (
     <CartContext.Provider
-      value={{ cartList, addToCart, removeList, deleteItem }}
+      value={{ cartList, addToCart, removeList, deleteItem, calcTotalPerItem }}
     >
       {children}
     </CartContext.Provider>

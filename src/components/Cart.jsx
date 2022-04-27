@@ -23,6 +23,21 @@ const Top = styled.div`
   padding: 20px;
 `;
 
+const Summary = styled.div`
+  heigth: 50vh;
+  max-width: 500px;
+  margin: 0 auto;
+  border-radius: 20px;
+  background-color: #1565c0;
+  color: #f7f7f7;
+  padding: 20px;
+`;
+
+const SummaryItem = styled.div`
+  display: flex;
+  margin: 10px 0;
+  justify-content: space-between;
+`;
 export const Cart = () => {
   const test = useContext(CartContext);
   // console.log(test.cartList);
@@ -71,11 +86,23 @@ export const Cart = () => {
                 <PriceDetail>
                   <ProductAmountContainer>
                     <ProductAmount>{item.qtyItem} items</ProductAmount>
+                    <ProductPrice> ${item.costItem} each</ProductPrice>
                   </ProductAmountContainer>
-                  <ProductPrice>$ {item.costItem} each</ProductPrice>
+                  <ProductPrice>
+                    $ {test.calcTotalPerItem(item.idItem)} Total
+                  </ProductPrice>
                 </PriceDetail>
               </Product>
             ))}
+            {test.cartList.length > 0 && (
+              <Summary>
+                <SummaryItem>
+                  <h2>Resumen de la Compra</h2>
+                  {/* <h4>Total: </h4>${test.calcTotal()} */}
+                </SummaryItem>
+                <SummaryItem>prueba</SummaryItem>
+              </Summary>
+            )}
           </ContentCart>
         )}
       </WrapperCart>
