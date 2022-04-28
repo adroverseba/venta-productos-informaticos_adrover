@@ -117,7 +117,7 @@ export const Cart = () => {
                 </SummaryItem>
                 <SummaryItem>
                   <button type="button" class="btn btn-light">
-                    COMPRAR
+                    Terminar mi compra
                   </button>
                 </SummaryItem>
               </Summary>
