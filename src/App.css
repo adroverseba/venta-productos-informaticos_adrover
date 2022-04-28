@@ -60,5 +60,6 @@ a:hover {
 
 div {
   /* border-radius: 5rem; */
-  /* padding: ; */
+  justify-content: space-evenly;
+  flex-direction: ;
 }

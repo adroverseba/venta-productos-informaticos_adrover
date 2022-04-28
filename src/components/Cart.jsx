@@ -15,6 +15,7 @@ import {
 } from "./styledComponent";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import Button from "@mui/material/Button";
 
 const Top = styled.div`
   display: flex;
@@ -23,20 +24,31 @@ const Top = styled.div`
   padding: 20px;
 `;
 
+const Info = styled.div`
+  flex: 3;
+`;
+
 const Summary = styled.div`
-  heigth: 50vh;
-  max-width: 500px;
+  flex: 1;
+  heigth: 600px;
+  max-width: 300px;
   margin: 0 auto;
   border-radius: 20px;
   background-color: #1565c0;
   color: #f7f7f7;
   padding: 20px;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+const Bottom = styled.div`
+  display: flex;
+  justify-content: space-between;
 `;
 
 const SummaryItem = styled.div`
   display: flex;
-  margin: 10px 0;
-  justify-content: space-between;
+  margin-top: 50px;
+  justify-content: space-evenly;
 `;
 export const Cart = () => {
   const test = useContext(CartContext);
@@ -64,47 +76,54 @@ export const Cart = () => {
             <h2>Your cart is empty</h2>
           )}
         </Top>
-        {test.cartList.length > 0 && (
-          <ContentCart>
-            {test.cartList.map((item) => (
-              <Product key={item.idItem}>
-                <ProductDetail>
-                  <ImageCart src={item.imgItem} />
-                  <Details>
-                    <span>
-                      <b>Product:</b> {item.nameItem}
-                    </span>
-                    <button
-                      type="button"
-                      class="btn btn-danger"
-                      onClick={() => test.deleteItem(item.idItem)}
-                    >
-                      Borrar Producto
-                    </button>
-                  </Details>
-                </ProductDetail>
-                <PriceDetail>
-                  <ProductAmountContainer>
-                    <ProductAmount>{item.qtyItem} items</ProductAmount>
-                    <ProductPrice> ${item.costItem} each</ProductPrice>
-                  </ProductAmountContainer>
-                  <ProductPrice>
-                    $ {test.calcTotalPerItem(item.idItem)} Total
-                  </ProductPrice>
-                </PriceDetail>
-              </Product>
-            ))}
+        <ContentCart>
+          <Bottom>
+            <Info>
+              {test.cartList.length > 0 &&
+                test.cartList.map((item) => (
+                  <Product key={item.idItem}>
+                    <ProductDetail>
+                      <ImageCart src={item.imgItem} />
+                      <Details>
+                        <span>
+                          <b>Product:</b> {item.nameItem}
+                        </span>
+                        <button
+                          type="button"
+                          class="btn btn-danger"
+                          onClick={() => test.deleteItem(item.idItem)}
+                        >
+                          Borrar Producto
+                        </button>
+                      </Details>
+                    </ProductDetail>
+                    <PriceDetail>
+                      <ProductAmountContainer>
+                        <ProductAmount>{item.qtyItem} items</ProductAmount>
+                        <ProductPrice> ${item.costItem} each</ProductPrice>
+                      </ProductAmountContainer>
+                      <ProductPrice>
+                        $ {test.calcTotalPerItem(item.idItem)} Total
+                      </ProductPrice>
+                    </PriceDetail>
+                  </Product>
+                ))}
+            </Info>
             {test.cartList.length > 0 && (
               <Summary>
+                <h2>Resumen de la Compra</h2>
                 <SummaryItem>
-                  <h2>Resumen de la Compra</h2>
-                  {/* <h4>Total: </h4>${test.calcTotal()} */}
+                  <h4>Total: </h4>${test.calcTotal()}
                 </SummaryItem>
-                <SummaryItem>prueba</SummaryItem>
+                <SummaryItem>
+                  <button type="button" class="btn btn-light">
+                    COMPRAR
+                  </button>
+                </SummaryItem>
               </Summary>
             )}
-          </ContentCart>
-        )}
+          </Bottom>
+        </ContentCart>
       </WrapperCart>
     </div>
   );

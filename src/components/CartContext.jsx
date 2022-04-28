@@ -40,21 +40,34 @@ const CartContextProvider = ({ children }) => {
     return cartList[index].costItem * cartList[index].qtyItem;
   };
 
-  const calcTotal= () =>{
-    return calcTotalPerItem = cartList.map(item=>calcTotalPerItem)
-  }
-  // const calcItemsQty = () => {
-  //   let qtys = cartList.map((item) => item.qtyItem);
-  //   return qtys.reduce(
-  //     (acumulador, valorActual) => acumulador + valorActual,
-  //     0
-  //   );
+  const calcTotal = () => {
+    let totalPerItem = cartList.map((item) => calcTotalPerItem(item.idItem));
+    return totalPerItem.reduce(
+      (previousValue, currentValue) => previousValue + currentValue
+    );
+  };
+
+  // arranco la cuenta desde cero en el reduce
+  const calcItemsQty = () => {
+    let qtys = cartList.map((item) => item.qtyItem);
+    return qtys.reduce(
+      (acumulador, valorActual) => acumulador + valorActual,
+      0
+    );
   };
 
   // en value le estoy pasando un estado global y una funcion global - paso todo dentro de un objeto
   return (
     <CartContext.Provider
-      value={{ cartList, addToCart, removeList, deleteItem, calcTotalPerItem }}
+      value={{
+        cartList,
+        addToCart,
+        removeList,
+        deleteItem,
+        calcTotalPerItem,
+        calcTotal,
+        calcItemsQty,
+      }}
     >
       {children}
     </CartContext.Provider>
