@@ -1,8 +1,9 @@
-import customFetch from "../utils/customFetch";
+// import customFetch from "../utils/customFetch";
 import { useState, useEffect } from "react";
-import { products } from "../utils/products";
+// import { products } from "../utils/products";
 import ItemList from "./ItemList";
 import { useParams } from "react-router-dom";
+import { fetchFromFirestore } from "../utils/fetchFirestore";
 
 const ItemListContainer = () => {
   const [datos, setDatos] = useState([]);
@@ -10,19 +11,17 @@ const ItemListContainer = () => {
 
   //componentDidMount
   useEffect(() => {
-    if (idCategory == undefined) {
-      customFetch(2000, products)
-        .then((result) => setDatos(result))
-        .catch((err) => console.log(err));
-    } else {
-      customFetch(
-        2000,
-        products.filter((item) => item.categoryId === parseInt(idCategory))
-      )
-        .then((result) => setDatos(result))
-        .catch((err) => console.log(err));
-    }
+    fetchFromFirestore(idCategory)
+      .then((result) => setDatos(result))
+      .catch((err) => console.log(err));
   }, [idCategory]);
+
+  // verificar este useEffect
+  // useEffect(() => {
+  //   return () => {
+  //     setDatos([]);
+  //   };
+  // }, []);
 
   return (
     <div className="container">
