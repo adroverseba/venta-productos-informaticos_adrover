@@ -12,47 +12,72 @@ import {
   ProductAmountContainer,
   ProductAmount,
   ProductPrice,
+  Top,
+  Summary,
+  Bottom,
+  SummaryItem,
+  InfoCart,
 } from "./styledComponent";
-import styled from "styled-components";
 import { Link } from "react-router-dom";
-import Button from "@mui/material/Button";
+// importo las funciones de Firebase
+import {
+  serverTimestamp,
+  updateDoc,
+  collection,
+  doc,
+  setDoc,
+  increment,
+} from "firebase/firestore";
+import db from "../utils/firebaseConfig";
 
-const Top = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px;
-`;
-
-const Info = styled.div`
-  flex: 3;
-`;
-
-const Summary = styled.div`
-  flex: 1;
-  heigth: 600px;
-  max-width: 300px;
-  margin: 0 auto;
-  border-radius: 20px;
-  background-color: #1565c0;
-  color: #f7f7f7;
-  padding: 20px;
-  flex-direction: row;
-  justify-content: space-between;
-`;
-const Bottom = styled.div`
-  display: flex;
-  justify-content: space-between;
-`;
-
-const SummaryItem = styled.div`
-  display: flex;
-  margin-top: 50px;
-  justify-content: space-evenly;
-`;
 export const Cart = () => {
   const test = useContext(CartContext);
   // console.log(test.cartList);
+
+  const createOrder = () => {
+    let order = {
+      buyer: {
+        name: "Sheldon Cooper",
+        email: "doctorsheldocooper@gmail.com",
+        phone: "3555449321",
+      },
+      date: serverTimestamp(),
+      items: test.cartList.map((item) => ({
+        id: item.idItem,
+        title: item.nameItem,
+        price: item.costItem,
+        qty: item.qtyItem,
+      })),
+      total: test.calcTotal(),
+    };
+    console.log(order.items);
+
+    // utilizo la funcion de la documentacion para descontar los productos comprados del stock, se usa increment()
+    test.cartList.forEach(async (item) => {
+      const itemRef = doc(db, "products", item.idItem);
+      await updateDoc(itemRef, {
+        stock: increment(-item.qtyItem),
+      });
+    });
+
+    const createOrderInFirestore = async () => {
+      // creamos la coleccion y el documento
+      const newOrderRef = doc(collection(db, "orders"));
+      await setDoc(newOrderRef, order);
+      return newOrderRef;
+    };
+
+    createOrderInFirestore()
+      .then((result) =>
+        alert(
+          "Your order has been created. Please take note of the ID of tour Order. \n\n\nORDER ID: " +
+            result.id
+        )
+      )
+      .catch((err) => console.log(err));
+
+    test.removeList();
+  };
 
   return (
     <div className="container" style={{ height: "95vh" }}>
@@ -78,7 +103,7 @@ export const Cart = () => {
         </Top>
         <ContentCart>
           <Bottom>
-            <Info>
+            <InfoCart>
               {test.cartList.length > 0 &&
                 test.cartList.map((item) => (
                   <Product key={item.idItem}>
@@ -108,7 +133,7 @@ export const Cart = () => {
                     </PriceDetail>
                   </Product>
                 ))}
-            </Info>
+            </InfoCart>
             {test.cartList.length > 0 && (
               <Summary>
                 <h2>Resumen de la Compra</h2>
@@ -116,7 +141,11 @@ export const Cart = () => {
                   <h4>Total: </h4>${test.calcTotal()}
                 </SummaryItem>
                 <SummaryItem>
-                  <button type="button" class="btn btn-light">
+                  <button
+                    onClick={createOrder}
+                    type="button"
+                    class="btn btn-light"
+                  >
                     Terminar mi compra
                   </button>
                 </SummaryItem>

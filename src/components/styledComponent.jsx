@@ -245,6 +245,41 @@ const ProductPrice = styled.div`
 //   flex-direction: column;
 // `;
 
+// Cart
+const Top = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+`;
+
+const InfoCart = styled.div`
+  flex: 3;
+`;
+
+const Summary = styled.div`
+  flex: 1;
+  heigth: 600px;
+  max-width: 300px;
+  margin: 0 auto;
+  border-radius: 20px;
+  background-color: #1565c0;
+  color: #f7f7f7;
+  padding: 20px;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+const Bottom = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+const SummaryItem = styled.div`
+  display: flex;
+  margin-top: 50px;
+  justify-content: space-evenly;
+`;
+
 export {
   Logo,
   MenuItem,
@@ -276,5 +311,10 @@ export {
   ImageCart,
   Details,
   PriceDetail,
-  ProductPrice
+  ProductPrice,
+  Top,
+  Summary,
+  Bottom,
+  SummaryItem,
+  InfoCart,
 };
