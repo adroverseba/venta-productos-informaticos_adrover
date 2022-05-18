@@ -2,7 +2,7 @@ import { createContext, useState } from "react";
 
 export const CartContext = createContext();
 //se llama asi porque me sirve para saber que elementos se encuentran agregados en el carrito
-// queriendo que se comparta todo el estdo global con toda la app se realiza lo siguiente
+// queriendo que se comparta todo el estado global con toda la app se realiza lo siguiente
 const CartContextProvider = ({ children }) => {
   const [cartList, setCartList] = useState([]);
 
