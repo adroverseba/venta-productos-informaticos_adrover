@@ -3,7 +3,6 @@ import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { makeStyles } from "@mui/styles";
-// import IconButton from "@mui/material/IconButton";
 import Button from "@mui/material/Button";
 import CartWidget from "./CartWidget";
 import { Link } from "react-router-dom";
@@ -34,20 +33,8 @@ const Navbar = () => {
   };
   return (
     <div>
-      <AppBar
-        position="fixed"
-        color="primary"
-        // onClick={() => alert("soy el navbar")}
-      >
+      <AppBar position="fixed" color="primary">
         <Toolbar>
-          {/* <IconButton
-            aria-label="menu"
-            color="inherit"
-            className={classes.menuButton}
-          >
-            <span class="material-icons">menu</span>
-          </IconButton> */}
-
           <Typography variant="h6" component="h1" className={classes.title}>
             <Link to="/" style={{ textDecoration: "none", color: "white" }}>
               ELECTRONIC HOUSE

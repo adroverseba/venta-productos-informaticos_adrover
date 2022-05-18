@@ -1,6 +1,4 @@
-// import customFetch from "../utils/customFetch";
 import { useState, useEffect } from "react";
-// import { products } from "../utils/products";
 import ItemList from "./ItemList";
 import { useParams } from "react-router-dom";
 import { fetchFromFirestore } from "../utils/fetchFirestore";
@@ -15,13 +13,6 @@ const ItemListContainer = () => {
       .then((result) => setDatos(result))
       .catch((err) => console.log(err));
   }, [idCategory]);
-
-  // verificar este useEffect
-  // useEffect(() => {
-  //   return () => {
-  //     setDatos([]);
-  //   };
-  // }, []);
 
   return (
     <div className="container">

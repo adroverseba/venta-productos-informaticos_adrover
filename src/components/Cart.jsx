@@ -32,7 +32,6 @@ import db from "../utils/firebaseConfig";
 
 export const Cart = () => {
   const test = useContext(CartContext);
-  // console.log(test.cartList);
 
   const createOrder = () => {
     let order = {
