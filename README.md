@@ -1,4 +1,4 @@
-#ELECTRONIC HOUSE(E-commerce)
+# ELECTRONIC HOUSE(E-commerce)
 
 _Este proyecto tiene la finalizadad de poner en practica todos los conocimientos fundamentales de React-Js en la conformacion de un E-commerce destimado a laventa de productos e insumos de computacion_
 
